@@ -1,26 +1,15 @@
-<script type="text/javascript">
+<script>
+	import { onMount } from 'svelte';
+	import { createScene } from '../lib/main.js';
+	let el;
+	onMount(() => {
+		createScene(el);
+	});
 </script>
-  
-<div id="user-settings" class="flex flex-column flex-wrap h-screen max-w-xs bg-red-500 justify-center">
-    <div id="shape-size" class="w-full ">
-        Hola
-    </div>
-    <div id="shape-color" class="w-full">
-        Hola
-    </div>
-    <div id="shape-rotation" class="w-full">
-        Hola
-    </div>
-</div>
 
-<style lang="postcss">
-    /*mobile*/
-    :global(html) {
-        background-color: theme(colors.sky.100);
-    }
-    /*variables*/
-    :global(root){
+<svelte:head>
+	<title>Three.js Sveltekit</title>
+	<meta name="description" content="Three.js example app built with Svelte" />
+</svelte:head>
 
-    }
-
-</style>
+<canvas bind:this={el} />
